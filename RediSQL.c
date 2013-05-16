@@ -7,6 +7,10 @@
 #include <strings.h>
 #include <unistd.h>
 
+/*
+ * Connect to a shared memory segment that is created in main.
+ * Needs to be protected by a semaphore.
+*/
 void doprocessing (int sock) {
     int n;
     char inBuffer[256];
