@@ -1,13 +1,13 @@
 
 
 CC = gcc
-CLAGS = -g 
+CFLAGS = -g 
 BINS=RediSQL
 
 all:	$(BINS)
 
 RediSql:	RediSQL.c
-	$(CC) $(CLAGS) RediSQL.c -o RediSQL
+	$(CC) $(CFLAGS) RediSQL.c -o RediSQL
 
 clean:
 	rm -f *.o $(BINS)
