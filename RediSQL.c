@@ -14,6 +14,9 @@ void doprocessing (int sock) {
     int runFlag=1;
     int errFlag=0;
 
+    int argCount=-1;
+    int argLen=-1;
+
 
     while( runFlag) {
         bzero(inBuffer,256);
@@ -33,9 +36,18 @@ void doprocessing (int sock) {
         }
 
         if( n > 0) {
-            printf("Here is the message: %s\n",inBuffer);
-            sprintf(outBuffer,"I got your message\n");
-            n = write(sock,outBuffer,strlen(outBuffer));
+            printf("Here is the message: >%s<\n",inBuffer);
+
+            if( inBuffer[0] == '*' ) {
+                argCount= atoi( &inBuffer[1]) ;
+                printf("Number of arguments = %d\n",argCount);
+            }
+            if( inBuffer[0] == '$' ) {
+                argLen= atoi( &inBuffer[1]) ;
+                printf("Argument Len = %d\n",argLen);
+            }
+//            sprintf(outBuffer,"I got your message\n");
+//            n = write(sock,outBuffer,strlen(outBuffer));
         }
 
         if (n < 0) {
@@ -55,6 +67,8 @@ int main( int argc, char *argv[] ) {
     struct sockaddr_in serv_addr, cli_addr;
     int  n;
     pid_t pid;
+
+    printf("\nRediSQL Started\n");
 
     /* First call to socket() function */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
