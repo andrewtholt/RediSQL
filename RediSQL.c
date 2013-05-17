@@ -11,6 +11,15 @@
  * Connect to a shared memory segment that is created in main.
  * Needs to be protected by a semaphore.
 */
+
+int readline( int fd, char *ptr, int maxLen ) {
+
+    int cnt = 0;
+
+    n = read(fd,ptr,1);
+}
+
+
 void doprocessing (int sock) {
     int n;
     char inBuffer[256];
@@ -50,8 +59,6 @@ void doprocessing (int sock) {
                 argLen= atoi( &inBuffer[1]) ;
                 printf("Argument Len = %d\n",argLen);
             }
-//            sprintf(outBuffer,"I got your message\n");
-//            n = write(sock,outBuffer,strlen(outBuffer));
         }
 
         if (n < 0) {
