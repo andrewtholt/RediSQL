@@ -1,22 +1,22 @@
 struc config {
-    int     daemonize;      //  yes
+    int     daemonize;      // 1=yes
     char   *pidfile;        // /var/run/redis.pid
     int     port;           // 6379
     int     timeout;        // 0
     int tcp-keepalive;      // 0
-    char *loglevel;         //  notice
-    syslog-enabled no
-    syslog-ident redis
-    syslog-facility local0
-    databases 16
-    save 900 1
-    save 300 10
-    save 60 10000
-    stop-writes-on-bgsave-error yes
-    rdbcompression yes
-    rdbchecksum yes
-    dbfilename dump.rdb
-    dir /var/redis_6379
+    char *loglevel;         // notice
+    int syslog-enabled;     // 0=no
+    char *syslog-ident;     // redis
+    char *syslog-facility;  // local0
+    inst databases;         // 16
+//    save 900 1
+//    save 300 10
+//    save 60 10000
+    int stop-writes-on-bgsave-error; // 1=yes
+    int rdbcompression;             //  1=yes
+    int rdbchecksum;                //  yes
+    char *dbfilename;               // dump.rdb
+    char *dir                       // /var/redis_6379
     slave-serve-stale-data yes
     slave-read-only yes
     repl-disable-tcp-nodelay no
