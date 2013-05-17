@@ -17,9 +17,9 @@ struc config {
     int rdbchecksum;                //  yes
     char *dbfilename;               // dump.rdb
     char *dir                       // /var/redis_6379
-    slave-serve-stale-data yes
-    slave-read-only yes
-    repl-disable-tcp-nodelay no
+    int slave-serve-stale-data;     // 1=yes
+    int slave-read-only;            // 1=yes
+    int repl-disable-tcp-nodelay    // no
     slave-priority 100
     appendonly no
     appendfsync everysec
