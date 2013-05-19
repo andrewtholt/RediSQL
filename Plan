@@ -1,8 +1,0 @@
-
-1) Simple C socket server.
-2) .. Add fork.
-3) .. Load redis.conf
-4) .. Load redisql.conf (if it exists)
-5) .. Via telnet issue INO and get Redis like repsonse.
-6) .. As above but using the redis-cli programme.
-
