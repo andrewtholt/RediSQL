@@ -1,5 +1,4 @@
 
-
 CC = gcc
 CFLAGS = -g 
 
@@ -11,8 +10,8 @@ BINS=tst RediSQL_T # RediSQL
 
 all:	$(BINS)
 
-RediSQL:	RediSQL.c
-	$(CC) $(CFLAGS) RediSQL.c -o RediSQL
+# RediSQL:	RediSQL.c
+#	$(CC) $(CFLAGS) RediSQL.c -o RediSQL
 
 RediSQL_T.o:	RediSQL_T.cpp
 	$(CPP) $(CFLAGS) -c $(LIBS) RediSQL_T.cpp -o RediSQL_T.o
