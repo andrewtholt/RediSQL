@@ -8,6 +8,7 @@ class clientTask {
         void go();
     private:
         int socketFd;
+        int dbNumber;
         char inBuffer[1024];
         char outBuffer[1024];
         int readline( int, char *, int );
