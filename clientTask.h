@@ -10,4 +10,5 @@ class clientTask {
         int socketFd;
         char inBuffer[1024];
         char outBuffer[1024];
+        int readline( int, char *, int );
 };
