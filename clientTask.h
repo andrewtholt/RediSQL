@@ -1,3 +1,4 @@
+#include "queue.h"
 
 class clientTask {
 
@@ -12,4 +13,5 @@ class clientTask {
         char inBuffer[1024];
         char outBuffer[1024];
         int readline( int, char *, int );
+        int parseCommand( myQueue );
 };
