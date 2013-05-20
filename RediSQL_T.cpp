@@ -121,7 +121,6 @@ void* SocketHandler(void* lp){
 
 	memset(buffer, 0, buffer_len);
 
-//	if((bytecount = recv(*csock, buffer, buffer_len, 0))== -1){
 	if((bytecount = readline(*csock,buffer,buffer_len)) == -1) {
 		fprintf(stderr, "Error receiving data %d\n", errno);
 		goto FINISH;
