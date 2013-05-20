@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#ifndef __QUEUE
+#define __QUEUE
+
 struct qmember {
     char *string;
     struct qmember *next;
@@ -18,3 +21,4 @@ class myQueue {
     private:
 
 };
+#endif
