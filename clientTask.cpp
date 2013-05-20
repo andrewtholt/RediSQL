@@ -5,6 +5,7 @@
 
 clientTask::clientTask(int fd ) {
     socketFd = fd;
+    dbNumber=1;
 }
 
 void clientTask::go() {
