@@ -1,8 +1,17 @@
 
 Length: Variable
-INFO    0|1
+BITCOUNT key [start] [stop]
+BITOP operation destkey [key ... key]
 DEL key [key .. keyn]
+HDEL key field [field ... ]
+HMGET key [field . . . ]
+HMSET key field value [field value . . . ]
+INFO    0|1
+MGET key [ key .... ]
 OBJECT subcommand [args .... ]
+MSET key value [key value . . . ]
+MSETNX key value [key value . . . ]
+SET ley value [EX seconds] [PX milliseconds]
 
 Length: 1
 
@@ -16,8 +25,15 @@ FLUSHDB
 MULTI
 
 Length: 2
+DECR key
 DUMP key
 EXISTS key
+GET key
+HGETALL key
+HKEYS key
+HLEN key
+HVALS ley
+INCR key
 KEYS [pattern]
 PERSIST key
 PTTY key
@@ -25,7 +41,28 @@ TTL key
 TYPE key
 
 Length: 3
+APPEND key value
+DECRBY key decrement
 EXPIRE key seconds
 EXPIREAT key timestamp
+GETBIT key offset
+GETSET key value
+HEXISTS key field
+HGET key field
+INCRBY key increment
+INCRBYFLOAT key increment
 MOVE key db
+
+Length: 4
+GETRANGE key start end
+HINCTBY key field increment
+HINCTBYFLOAT key field increment
+HSET key field value
+HSETNX key field value
+PSETEX key milliseconds value
+SETBIT key offset value
+SETEX key seconds value
+SETNX key value
+SETRANGE key offset value
+STRLEN key
 
