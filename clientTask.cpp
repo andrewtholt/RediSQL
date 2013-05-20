@@ -57,6 +57,10 @@ void clientTask::go() {
         if( cnt == 0) {
             tokenCount = 0;
             tokenLength = 0;
+            // 
+            // Now command is assembled in the queue
+            // Call the parser.
+            //
             printf("DONE\n\n");
             cmd.dump();
             sprintf(outBuffer,"+OK\r\n");
