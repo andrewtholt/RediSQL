@@ -22,8 +22,8 @@ queue.o:	queue.cpp queue.h
 tst:	queue.o tst.cpp
 	$(CPP) $(CFLAGS) tst.cpp queue.o -o tst
 
-RediSQL_T:	RediSQL_T.o clientTask.o
-	$(CPP) $(CFLAGS) RediSQL_T.o clientTask.o -o RediSQL_T -lpthread
+RediSQL_T:	RediSQL_T.o clientTask.o queue.o
+	$(CPP) $(CFLAGS) RediSQL_T.o clientTask.o queue.o -o RediSQL_T -lpthread
 
 clientTask.o:	clientTask.cpp clientTask.h
 	$(CPP) -c clientTask.cpp -o clientTask.o

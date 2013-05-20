@@ -123,6 +123,7 @@ void* SocketHandler(void* lp){
 	int bytecount;
 
     clientTask tasker(*csock);
+    tasker.go();
     /*
 	memset(buffer, 0, buffer_len);
 

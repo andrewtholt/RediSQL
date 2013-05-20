@@ -39,8 +39,6 @@ void myQueue::dump() {
     if( (struct qmember *)NULL == head ) {
         printf("\nEmpty Q\n");
     } else {
-        printf("\nNOT an Empty Q\n");
-
         entry=head;
 
         while( (struct qmember *)NULL != entry) {
