@@ -1,0 +1,31 @@
+
+Length: Variable
+INFO    0|1
+DEL key [key .. keyn]
+OBJECT subcommand [args .... ]
+
+Length: 1
+
+PING
+RANDOMKEY
+SYNC
+TIME
+SAVE
+DISCARD
+FLUSHDB
+MULTI
+
+Length: 2
+DUMP key
+EXISTS key
+KEYS [pattern]
+PERSIST key
+PTTY key
+TTL key
+TYPE key
+
+Length: 3
+EXPIRE key seconds
+EXPIREAT key timestamp
+MOVE key db
+
