@@ -9,6 +9,9 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <pthread.h>
+
+#include "clientTask.h"
+
 /*
  * TODO
  * 1. Get rid of the goto's
@@ -112,13 +115,15 @@ int readline( int fd, char *ptr, int maxLen ) {
 
 
 void* SocketHandler(void* lp){
-    int *csock = (int*)lp;
+    int *csock = (int *)lp;
 
 	char buffer[1024];
     char outBuffer[1024];
 	int buffer_len = 1024;
 	int bytecount;
 
+    clientTask tasker(*csock);
+    /*
 	memset(buffer, 0, buffer_len);
 
 	if((bytecount = readline(*csock,buffer,buffer_len)) == -1) {
@@ -135,6 +140,7 @@ void* SocketHandler(void* lp){
 	}
 	
 	printf("Sent bytes %d\n", bytecount);
+    */
 
 
 FINISH:

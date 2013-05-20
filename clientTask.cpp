@@ -16,6 +16,8 @@ void clientTask::go() {
             fprintf(stderr, "Error receiving data %d\n", errno);
             runFlag =0;
         }
+
+        printf("Received bytes %d\nReceived string\n>%s<\n", bytecount, inBuffer);
     }
 }
 
