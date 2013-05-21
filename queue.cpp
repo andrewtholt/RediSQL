@@ -5,9 +5,38 @@
 
 #include "queue.h"
 
+//
+// = qmember methods =========================================
+//
+qmember::qmember() {
+    string = (char *)NULL;
+    next = (class qmember *)NULL;
+}
+
+qmember::qmember(char *ptr) {
+    if( (char *)NULL != string ) {
+        free(string);
+    }
+
+    string = (char *)malloc( strlen( ptr )) ;
+    // 
+    // Exception ?
+    //
+}
+
+qmember::~qmember() {
+    next=(class qmember *)NULL; // Point to last
+
+    if( (char *)NULL != string ) {
+        free(string);
+    }
+}
+//
+// ===========================================================
+//
 myQueue::myQueue() {
-    head=(struct qmember *)NULL; // Point to first record
-    tail=(struct qmember *)NULL; // Point to last
+    head=(class qmember *)NULL; // Point to first record
+    tail=(class qmember *)NULL; // Point to last
 }
 
 void myQueue::add(char *ptr) {

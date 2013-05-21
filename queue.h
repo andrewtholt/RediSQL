@@ -3,9 +3,15 @@
 #ifndef __QUEUE
 #define __QUEUE
 
-struct qmember {
-    char *string;
-    struct qmember *next;
+class qmember {
+    public:
+        char *string;
+        class qmember *next;
+
+        qmember();
+        qmember(char *);
+        qmember(char *,class qmember *);
+        ~qmember();
 };
 
 class myQueue {
@@ -13,11 +19,11 @@ class myQueue {
     struct qmember *tail;
 
     public:
-        myQueue();
-        void add(char *ptr);
-        char *get();
-        ~myQueue();
-        void dump();
+    myQueue();
+    void add(char *ptr);
+    char *get();
+    ~myQueue();
+    void dump();
     private:
 
 };
