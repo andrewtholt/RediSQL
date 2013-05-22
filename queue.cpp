@@ -9,27 +9,43 @@
 // = qmember methods =========================================
 //
 qmember::qmember() {
-    string = (char *)NULL;
-    next = (class qmember *)NULL;
+    p = new srep;
 }
 
 qmember::qmember(char *ptr) {
-    if( (char *)NULL != string ) {
-        free(string);
-    }
+    p = new srep;
+    p->string = new char[ strlen(ptr) + 1 ];
+    strcpy(p->string,ptr);
+    p->next = (class qmember *)NULL;
+}
 
-    string = (char *)malloc( strlen( ptr )) ;
-    // 
-    // Exception ?
-    //
+qmember::qmember(char *ptr, qmember* l) {
+    p = new srep;
+    p->string = new char[ strlen(ptr) + 1 ];
+    strcpy(p->string,ptr);
+    p->next = l;
+}
+
+void qmember::print() {
+    printf("Hello there\n");
+    printf(">%s<\n", p->string);
+}
+
+char *qmember::get() {
+    return( p->string );
+}
+
+void qmember::setNext( qmember *l ) {
+    p->next = l;
+}
+
+qmember* qmember::getNext() {
+    return(p->next);
 }
 
 qmember::~qmember() {
-    next=(class qmember *)NULL; // Point to last
-
-    if( (char *)NULL != string ) {
-        free(string);
-    }
+    delete p->string;
+    delete p;
 }
 //
 // ===========================================================
@@ -40,50 +56,48 @@ myQueue::myQueue() {
 }
 
 void myQueue::add(char *ptr) {
-    struct qmember *q = (struct qmember *)malloc(sizeof(struct qmember));
-    char *data = (char *)malloc(strlen(ptr));
 
-    strcpy(data,ptr);
-
-    q->string = data;
+    qmember* cmd;
+    cmd = new qmember(ptr);
 
     if ((struct qmember *)NULL == head ) {
-        q->next =  (struct qmember *)NULL;
-        head = q;
-        tail = q;
+        head = cmd;
+        tail = cmd;
     } else {
-        tail->next = q;
-        tail=q;
-    }
+        tail->setNext( cmd );
+        tail = cmd;
 
+    }
 }
 
 char *myQueue::get() {
+    return( head->get());
 }
 
 void myQueue::dump() {
-    struct qmember *entry;
+    qmember* entry;
+
     printf("\nData dump from queue\n");
 
-    if( (struct qmember *)NULL == head ) {
+    if( (class qmember *)NULL == head ) {
         printf("\nEmpty Q\n");
     } else {
         entry=head;
 
-        while( (struct qmember *)NULL != entry) {
-            printf("Data is %s\n",entry->string);
-            entry=entry->next;
+        while( (class qmember *)NULL != entry) {
+            printf("Data is %s\n",entry->get());
+            entry=entry->getNext();
         }
     }
 }
 
 myQueue::~myQueue() {
+    qmember* entry;
+    entry=head;
+
+    while( (class qmember *)NULL != entry) {
+        delete entry;
+        entry=entry->getNext();
+    }
 }
 
-/*
-int main() {
-    myQueue cmd;
-    cmd.dump();
-    return(0);
-}
-*/

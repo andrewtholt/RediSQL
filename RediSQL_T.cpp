@@ -10,7 +10,12 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#include <map>
+#include <string>
+
 #include "clientTask.h"
+
+using namespace std;
 
 /*
  * TODO
@@ -19,6 +24,9 @@
  */
 
 void* SocketHandler(void*);
+
+void* tst() {
+}
 
 int main(int argv, char** argc){
 
@@ -34,6 +42,7 @@ int main(int argv, char** argc){
 	int* csock;
 	sockaddr_in sadr;
 	pthread_t thread_id=0;
+    map<string, void (*)> cmdMap;
 
 
 	hsock = socket(AF_INET, SOCK_STREAM, 0);
@@ -67,6 +76,11 @@ int main(int argv, char** argc){
 		fprintf(stderr, "Error listening %d\n",errno);
 		goto FINISH;
 	}
+
+    // OK, no all that works, lets set up the command table.
+    //
+
+    cmdMap["info"] = tst;
 
 	//Now lets do the server stuff
 

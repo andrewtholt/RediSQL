@@ -2,7 +2,7 @@
 #
 #
 CC = gcc
-CFLAGS = -g 
+CFLAGS = -g -fpermissive
 
 CPP=g++
 

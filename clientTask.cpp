@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
+
 #include "clientTask.h"
 #include "queue.h"
 
@@ -63,7 +64,7 @@ void clientTask::go() {
             //
             printf("DONE\n\n");
             cmd.dump();
-            sprintf(outBuffer,"+OK\r\n");
+            sprintf(outBuffer,"+OK\r\n\n");
             write( socketFd, outBuffer,strlen(outBuffer));
             printf("%s",outBuffer);
         }
