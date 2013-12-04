@@ -36,7 +36,7 @@ void clientTask::go() {
             errorFlag = 0;
         }
 
-        printf("Received bytes %d\nReceived string\n>%s<\n", bytecount, inBuffer);
+        printf("Received bytes %d\nReceived string\n>%s<\n\n", bytecount, inBuffer);
 
         if ( (tokenCount != 0 ) && (tokenLength != 0) && (cnt > 0)) {
             printf("cmd=%s\n",inBuffer);
